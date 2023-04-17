@@ -7,4 +7,4 @@ if [ -n "$INPUT_PACKAGES" ]; then
     pip3 install "${packages_array[@]}"
 fi
 
-python3 /markdown-html2.py
+python3 /markdown-html.py

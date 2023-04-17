@@ -15,9 +15,6 @@ md = markdown.Markdown(extensions=EXTENSIONS, extension_configs=EXTENSION_CONFIG
 if not isinstance(INPUT_LIST, list) or not all([isinstance(sublist, list) for sublist in INPUT_LIST]):
     raise ValueError("input_files must be a JSON list of lists")
 
-if not isinstance(OUTPUT_LIST, list):
-    raise ValueError("output_files must be a JSON list")
-
 if BUILTIN_STYLESHEET != "":
     with open(REPO_PATH.joinpath(BUILTIN_STYLESHEET), 'r') as stylesheet_file:
         style = "<style>\n" + stylesheet_file.read() + "</style>\n"
