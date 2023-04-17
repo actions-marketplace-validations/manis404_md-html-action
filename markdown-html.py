@@ -8,7 +8,7 @@ REPO_PATH = pathlib.Path(os.environ['GITHUB_WORKSPACE'])
 INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
 BUILTIN_STYLESHEET : str = ""
 EXTENSIONS : list = ["pymdownx.extra"]
-EXTENSION_CONFIGS : dict = json.loads({})
+EXTENSION_CONFIGS : dict = json.loads(os.environ['INPUT_EXTENSION_CONFIGS'])
 
 md = markdown.Markdown(extensions=EXTENSIONS, extension_configs=EXTENSION_CONFIGS, output_format="html5")
 
