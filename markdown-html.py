@@ -39,6 +39,9 @@ for input_sublist in INPUT_LIST:
                     fileName = os.path.basename(input_path_str)[:-3]
 
                     output_path = REPO_PATH + "/markdown/" + fileName + ".html"
+
+                    if not os.path.exists(REPO_PATH + "/markdown/"):      
+                        os.makedirs(REPO_PATH + "/markdown/")
                     
                     print("Generating", output_path)
 
