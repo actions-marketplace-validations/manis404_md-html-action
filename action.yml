@@ -1,5 +1,5 @@
-name: "Markdown-HTML"
-description: "Render markdown to HTML files"
+name: "Markdown-HTML2"
+description: "Render markdown to HTML files better"
 inputs:
   input_files:
     description: "A JSON list of a list of paths to markdown files to render in to HTML files"
