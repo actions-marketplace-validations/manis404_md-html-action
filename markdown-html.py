@@ -3,8 +3,6 @@
 print("- Markdown-HTML -")
 
 import markdown, natsort, os, json, pathlib
-from python_markdown_comments import CommentsExtension
-comments = CommentsExtension()
 
 REPO_PATH = pathlib.Path(os.environ['GITHUB_WORKSPACE'])
 INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
