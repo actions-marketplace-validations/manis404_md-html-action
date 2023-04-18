@@ -3,11 +3,13 @@
 print("- Markdown-HTML -")
 
 import markdown, natsort, os, json, pathlib
+from python_markdown_comments import CommentsExtension
+comments = CommentsExtension()
 
 REPO_PATH = pathlib.Path(os.environ['GITHUB_WORKSPACE'])
 INPUT_LIST = json.loads(os.environ['INPUT_INPUT_FILES'])
 BUILTIN_STYLESHEET : str = ""
-EXTENSIONS : list = ["pymdownx.extra"]
+EXTENSIONS : list = ["pymdownx.extra", "python-markdown-comments"]
 EXTENSION_CONFIGS : dict = json.loads(os.environ['INPUT_EXTENSION_CONFIGS'])
 
 md = markdown.Markdown(extensions=EXTENSIONS, extension_configs=EXTENSION_CONFIGS, output_format="html5")
@@ -35,7 +37,7 @@ for input_sublist in INPUT_LIST:
 
                     fileName = os.path.basename(input_path_str)[:-3]
 
-                    output_dir = os.environ['GITHUB_WORKSPACE'] + "/markdown/"
+                    output_dir = os.environ['GITHUB_WORKSPACE'] + "/html/"
                     output_file_path = output_dir + fileName + ".html"
 
                     if not os.path.exists(output_dir):      
