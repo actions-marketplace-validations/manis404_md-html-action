@@ -31,6 +31,9 @@ for input_sublist in INPUT_LIST:
                 md_str = ""
 
                 with open(input_path_str, 'r') as input_file:
+                    # skip first line
+                    next(input_file)
+
                     md_str = input_file.read() + "\n"
 
                     fileName = os.path.basename(input_path_str)[:-3]
@@ -44,8 +47,13 @@ for input_sublist in INPUT_LIST:
                     print("Generating", output_file_path)
 
                     html = "<!DOCTYPE html>\n" + style + "\n" + md.convert(md_str)
+
+                    cleaned_html = html.replace("<strong>", "<b>").replace("</strong>", "</b>").replace("<em>", "<i>").replace("</em>", "</i>")
+
+
+                    
                     with open(output_file_path, 'w') as output_file:
-                        output_file.write(html)
+                        output_file.write(cleaned_html)
 
 
 print("Markdown-HTML complete")
