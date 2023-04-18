@@ -35,15 +35,16 @@ for input_sublist in INPUT_LIST:
 
                     fileName = os.path.basename(input_path_str)[:-3]
 
-                    output_path = REPO_PATH + "/markdown/" + fileName + ".html"
+                    output_dir = os.environ['GITHUB_WORKSPACE'] + "/markdown/"
+                    output_file_path = output_dir + fileName + ".html"
 
-                    if not os.path.exists(REPO_PATH + "/markdown/"):      
-                        os.makedirs(REPO_PATH + "/markdown/")
+                    if not os.path.exists(output_dir):      
+                        os.makedirs(output_dir)
                     
-                    print("Generating", output_path)
+                    print("Generating", output_file_path)
 
                     html = "<!DOCTYPE html>\n" + style + "\n" + md.convert(md_str)
-                    with open(output_path, 'w') as output_file:
+                    with open(output_file_path, 'w') as output_file:
                         output_file.write(html)
 
 
